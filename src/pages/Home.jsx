@@ -39,7 +39,7 @@ export default function Home() {
               </p>
               <p>I also run CODASH, a web studio, so I am used to real clients and real deadlines.</p>
             </div>
-            <div className="note">Looking for a developer rolE!</div>
+            <div className="note">Looking for a developer role!</div>
           </div>
           <div className="links2">
             <a className="copy" href="#/skills">See my skills</a>

@@ -77,7 +77,7 @@ export default function Contact() {
     <div className="wrap">
       <section className="page">
         <h1><span className="l"><span className="sp"><Split base={0.1} wave>Say hello.</Split></span></span></h1>
-        <p className="lead">Hiring in Bangalore? Send me the role description and I will show you how my work fits it.</p>
+        <p className="lead">Hiring? Send me the role description and I will show you how my work fits it.</p>
         <a className="big" ref={mail} href={'mailto:' + EMAIL}>
           {EMAIL.split('@')[0]}@<wbr />{EMAIL.split('@')[1]}
         </a>
@@ -98,7 +98,7 @@ export default function Contact() {
         </div>
       </section>
     </div>
-    <Marquee items={['Say hello', 'Hire me', 'Bangalore', 'Let us talk']} variant="sun" speed={3.5} reverse tilt={1.5} />
+    <Marquee items={['Say hello', 'Hire me', 'Let us talk']} variant="sun" speed={3.5} reverse tilt={1.5} />
     </>
   )
 }
