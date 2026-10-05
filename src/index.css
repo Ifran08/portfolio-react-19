@@ -1,0 +1,32 @@
+/* Tailwind: theme + utilities only. No preflight, so it never fights the site's own css/style.css */
+@import "tailwindcss/theme.css";
+@import "tailwindcss/utilities.css";
+
+/* Colors come from the site's variables, so light and dark mode keep working */
+@theme inline {
+  --color-ink: var(--ink);
+  --color-cream: var(--bg);
+  --color-brand: var(--red);
+  --color-sun: var(--sun);
+  --color-rose: var(--rose);
+  --color-mute: var(--mute);
+  --color-hot: var(--hot);
+  --font-display: "Unbounded", sans-serif;
+  --font-body: "Hanken Grotesk", system-ui, sans-serif;
+  --font-hand: "Caveat", cursive;
+}
+
+:root { --hot: var(--red); }
+@media (prefers-color-scheme: dark) { :root { --hot: #FF5468; } }
+
+:where(#skills-root) button { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; text-align: inherit; }
+:where(#skills-root) ul { list-style: none; margin: 0; padding: 0; }
+:where(#skills-root) p { margin: 0; }
+:where(#skills-root) { font-family: "Hanken Grotesk", system-ui, sans-serif; }
+
+.persp { perspective: 1100px; }
+.preserve-3d { transform-style: preserve-3d; }
+.no-backface { backface-visibility: hidden; -webkit-backface-visibility: hidden; }
+.glyph { display: inline-block; color: var(--gac); line-height: 1; transition: color .3s ease, transform .35s cubic-bezier(.34,1.6,.5,1); }
+.face:hover .glyph { color: var(--gfg); transform: rotate(-7deg) scale(1.08); }
+.dots { background-image: radial-gradient(var(--ink) 1.2px, transparent 1.2px); background-size: 22px 22px; }

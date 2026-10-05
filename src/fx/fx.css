@@ -1,0 +1,95 @@
+/* ====== the crazy layer: loaded after site.css so it can override ====== */
+::selection{background:var(--sun);color:#1E0A0C}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* letters that fly in and jump on hover */
+.split .w{display:inline-block;white-space:nowrap}
+.ch{display:inline-block;cursor:default;animation:chIn .95s cubic-bezier(.34,1.6,.5,1) calc(var(--d,0s) + var(--i)*45ms) backwards;transition:transform .35s cubic-bezier(.34,1.9,.5,1),color .2s}
+@keyframes chIn{from{opacity:0;transform:translateY(calc(115% * var(--s,1))) rotate(calc(var(--s,1) * (10deg + var(--i)*2deg))) scale(.5)}}
+.ch:hover{transform:translateY(-.1em) rotate(-7deg) scale(1.12);color:var(--hot)}
+.u .ch:hover{color:var(--ink)}
+h1 .l>span.sp{animation:none}
+h1 .l.free{overflow:visible}
+.wave .ch{animation:chIn .95s cubic-bezier(.34,1.6,.5,1) calc(var(--d,0s) + var(--i)*45ms) backwards,chWave 2.6s ease-in-out calc(var(--d,0s) + 1.2s + var(--i)*90ms) infinite}
+@keyframes chWave{0%,55%,100%{transform:none}25%{transform:translateY(-.1em) rotate(-4deg)}}
+.u path{animation-delay:.9s}
+.logo .ch{animation-delay:calc(.2s + var(--i)*60ms)}
+
+/* highlights that wipe in */
+mark.mk{background:linear-gradient(transparent 58%,var(--sun) 58%) no-repeat 0 0/0% 100%;transition:background-size .9s cubic-bezier(.2,.8,.2,1) .2s}
+mark.mk.in{background-size:100% 100%}
+
+/* scroll bar, sparkle canvas, floating shapes */
+.fxc{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:68}
+.bgs{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
+.bgs i{position:absolute;display:block;opacity:.42}
+@media (max-width:700px){.bgs i:nth-child(n+5){display:none}.bgs i{opacity:.26}}
+
+/* big scrolling bands */
+.mq{position:relative;z-index:1;overflow:hidden;border-block:3px solid var(--ink);padding:16px 0;margin:60px 0;background:var(--bg)}
+.mq-track{display:flex;width:max-content;will-change:transform}
+.mq-set{display:flex;flex:none;align-items:center;gap:34px;padding-right:34px;font:800 clamp(30px,5.4vw,64px)/1 "Unbounded",sans-serif;letter-spacing:-.04em;white-space:nowrap}
+.mq-item{display:flex;align-items:center;gap:34px}
+.mq-item i{width:.62em;height:.62em;flex:none;background:var(--red);animation:spin 7s linear infinite;clip-path:polygon(50% 0,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)}
+.mq-outline .mq-item span{color:transparent;-webkit-text-stroke:2px var(--ink);transition:color .2s}
+.mq-outline .mq-item span:hover{color:var(--ink)}
+.mq-red{background:var(--red);border-color:#1E0A0C;color:#FFF3D6}
+.mq-red .mq-item i,.mq-sun .mq-item i{background:var(--sun)}
+.mq-sun{background:var(--sun);border-color:#1E0A0C;color:#1E0A0C}
+.mq-sun .mq-item i{background:var(--red)}
+.mq-x{position:relative;overflow:hidden;margin:80px 0;padding:46px 0}
+.mq-x .mq{margin:0 0 0 -30px;width:calc(100% + 60px)}
+.mq-x .mq+.mq{margin-top:-62px}
+@media (max-width:700px){.mq{margin:40px 0}.mq-x .mq+.mq{margin-top:-46px}}
+
+/* sentences that light up while you scroll */
+.scrub{font:700 clamp(26px,4.8vw,60px)/1.14 "Unbounded",sans-serif;letter-spacing:-.04em;max-width:18em;margin:100px 0 70px}
+
+/* home: googly eyes, sticker box */
+.eyes{position:absolute;right:6px;top:84px;display:none;gap:10px;transform:rotate(6deg)}
+@media (min-width:900px){.eyes{display:flex}}
+.eye{width:78px;height:78px;border-radius:50%;background:#FFF3D6;border:3px solid #1E0A0C;box-shadow:5px 5px 0 var(--shadow);display:grid;place-items:center;animation:eyeblink 5s infinite}
+.eye.e2{width:70px;height:70px;margin-top:14px;animation-delay:.12s}
+.pupil{width:32px;height:32px;border-radius:50%;background:#1E0A0C;position:relative}
+.pupil::after{content:"";position:absolute;left:7px;top:6px;width:9px;height:9px;border-radius:50%;background:#FFF3D6}
+@keyframes eyeblink{0%,91%,100%{transform:scaleY(1)}95%{transform:scaleY(.08)}}
+.yard{position:relative;height:310px;margin:10px 0 30px;border:2.5px dashed var(--ink);overflow:hidden;background:repeating-linear-gradient(45deg,transparent 0 14px,rgba(255,200,61,.16) 14px 28px)}
+.yard-note{position:absolute;left:18px;top:10px;font:600 28px "Caveat",cursive;color:var(--red);transform:rotate(-3deg);pointer-events:none}
+.sticker{position:absolute;padding:10px 18px;border:2.5px solid #1E0A0C;box-shadow:5px 5px 0 #1E0A0C;font:800 clamp(15px,2.4vw,22px) "Unbounded",sans-serif;letter-spacing:-.03em;cursor:grab;user-select:none;touch-action:none;white-space:nowrap}
+@media (max-width:700px){.yard{height:340px}}
+
+/* work cards fly in from the sides, tilt in 3D, and shine */
+.poster.rv{opacity:0;transform:translate(var(--ex,0px),60px) rotate(calc(var(--r,0deg)*6)) scale(.88);transition:opacity .7s,transform .95s cubic-bezier(.34,1.4,.5,1),box-shadow .35s}
+.poster:nth-child(odd){--ex:-80px}.poster:nth-child(even){--ex:80px}
+.poster.rv.in{opacity:1;transform:perspective(900px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg)) rotate(var(--r,0deg))}
+.poster.rv.in:hover{transform:perspective(900px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg)) translate(-4px,-6px) scale(1.025);transition:opacity .7s,transform .14s linear,box-shadow .35s}
+.poster::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .3s;background:radial-gradient(circle at var(--gx,50%) var(--gy,50%),rgba(255,255,255,.6),transparent 55%);mix-blend-mode:soft-light}
+.poster:hover::before{opacity:1}
+@media (max-width:760px){.poster:nth-child(odd){--ex:-40px}.poster:nth-child(even){--ex:40px}}
+
+/* rows slide in with a skew, home list sweeps red */
+.rows>div.rv{transform:translateX(-46px) skewX(-7deg)}
+.rows>div.rv.in{transform:none}
+.sel a.rv{transform:translateX(-70px);background:linear-gradient(var(--red),var(--red)) no-repeat left center/0% 100%;transition:opacity .7s,transform .85s cubic-bezier(.2,.8,.2,1),padding .3s,color .3s,background-size .45s cubic-bezier(.7,0,.2,1)}
+.sel a.rv.in{transform:none}
+.sel a:hover{background-size:100% 100%;color:#FFF3D6;padding-right:22px}
+.sel a:hover span{color:#FFF3D6}
+.next{background:linear-gradient(var(--red),var(--red)) no-repeat left center/0% 100%;transition:padding .3s,color .3s,background-size .45s cubic-bezier(.7,0,.2,1)}
+.next:hover{background-size:100% 100%;color:#FFF3D6;padding-right:20px}
+
+/* contact */
+.big{transform-origin:left center;transition:transform .3s cubic-bezier(.34,1.9,.5,1)}
+.big:hover{transform:rotate(-2deg) scale(1.03)}
+label{transition:transform .3s cubic-bezier(.34,1.9,.5,1),color .2s}
+label:focus-within{transform:translateX(10px);color:var(--red)}
+input:focus,textarea:focus{box-shadow:0 7px 0 -3px var(--sun)}
+
+/* the round open to work sticker */
+.badge{position:fixed;left:18px;bottom:calc(22px + env(safe-area-inset-bottom,0px));width:96px;height:96px;border-radius:50%;background:var(--sun);border:2.5px solid #1E0A0C;box-shadow:5px 5px 0 var(--shadow);z-index:39;display:grid;place-items:center;text-decoration:none}
+.badge-in,.badge-spin{position:absolute;inset:0}
+.badge-spin{animation:spin 11s linear infinite}
+.badge svg{width:100%;height:100%;display:block}
+.badge text{font:800 11.5px "Hanken Grotesk",sans-serif;fill:#1E0A0C;letter-spacing:.5px}
+.badge-mid{position:relative;font:800 26px/1 "Unbounded",sans-serif;color:var(--red);transition:transform .3s cubic-bezier(.34,1.9,.5,1)}
+.badge:hover .badge-mid{transform:translateX(5px) rotate(-45deg)}
+@media (max-width:700px){.badge{width:70px;height:70px;left:12px}.badge text{font-size:12px}.badge-mid{font-size:20px}}
